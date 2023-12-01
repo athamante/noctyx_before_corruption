@@ -34,4 +34,4 @@ image uki_pout = "sprites/uki/pout.png"
 
 ## Mascot/Animal Sprites
 
-## Enemy/Mob Sprites
+## Enemy Sprites

@@ -1,5 +1,8 @@
 ## Dynamic Character Variables
 define protag_name = "Placeholder"
+define robot_name = "Robot"
+define android_name = "Android"
+define cryptid_name = "Cryptid"
 
 ## Base Character
 define base = Character()
@@ -20,5 +23,12 @@ define takaradachi = Character("Takaradachi", kind=base)
 define bleep_bleep = Character("Bleep Bleep", kind=base)
 define sheero = Character("Sheero", kind=base)
 define ukinya = Character("Ukinya", kind=base)
+define dog = Character("Dog", kind=base)
+define cat = Character("Cat", kind=base)
+define kat = character("Kat", kind=base)
 
-## Enemies/Mobs
+## Enemies
+define robot = Character("robot_name", dynamic=True, kind=base)
+define android = Character("android_name", dynamic=True, kind=base)
+define cryptid = Character("cryptid_name", dynamic=True, kind=base)
+define virus = Character("Virus", kind=base)
