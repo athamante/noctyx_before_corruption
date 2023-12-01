@@ -1,0 +1,17 @@
+cache/
+saves/
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+*.rpyc
+*.rpymc
+
+log.txt
+errors.txt
+traceback.txt
+files.txt
