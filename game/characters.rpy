@@ -25,7 +25,7 @@ define sheero = Character("Sheero", kind=base)
 define ukinya = Character("Ukinya", kind=base)
 define dog = Character("Dog", kind=base)
 define cat = Character("Cat", kind=base)
-define kat = character("Kat", kind=base)
+define kat = Character("Kat", kind=base)
 
 ## Enemies
 define robot = Character("robot_name", dynamic=True, kind=base)
