@@ -26,7 +26,11 @@ label start:
 
     e "You've created a new Ren'Py game."
 
+    $ achievement_tracker.complete_achievement("Fake Protagonist")
+
     e "Once you add a story, pictures, and music, you can release it to the world!"
+
+    $ achievement_tracker.complete_achievement("True Ending")
 
     # This ends the game.
 
