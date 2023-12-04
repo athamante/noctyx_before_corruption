@@ -25,12 +25,40 @@ image sonny_upset = "sprites/sonny/upset.png"
 image sonny_corrupted = "sprites/sonny/corrupted.png"
 
 ## Uki Sprites
-image uki_default = "sprites/uki/default.png"
-image uki_smile = "sprites/uki/smile.png"
-image uki_concerned = "sprites/uki/concerned.png"
-image uki_serious = "sprites/uki/serious.png"
-image uki_upset = "sprites/uki/upset.png"
-image uki_pout = "sprites/uki/pout.png"
+default uki_hair_index = 0
+default uki_eyewear_index = 0
+default uki_top_index = 0
+default uki_outerwear_index = 0
+default uki_bottom_index = 0
+default uki_shoes_index = 0
+default uki_expression = "default"
+
+image uki_hair = "sprites/uki/hair[uki_hair_index].png"
+image uki_eyewear = "sprites/uki/eyewear[uki_eyewear_index].png"
+image uki_top = "sprites/uki/top[uki_top_index].png"
+image uki_outerwear = "sprites/uki/outerwear[uki_outerwear_index].png"
+image uki_bottom = "sprites/uki/bottom[uki_bottom_index].png"
+image uki_shoes = "sprites/uki/shoes[uki_shoes_index].png"
+image uki_face = "sprites/uki/[uki_expression].png"
+
+# Placeholder sprite size and component position
+define sprite_size = (276, 1080)
+define placeholder_pos = (0, 0)
+
+image uki_sprite = Composite(
+    sprite_size,
+    placeholder_pos, "uki_shoes",
+    placeholder_pos, "uki_bottom",
+    placeholder_pos, "uki_top",
+    placeholder_pos, "uki_outerwear",
+    placeholder_pos, "uki_face",
+    placeholder_pos, "uki_eyewear",
+    placeholder_pos, "uki_hair",
+)
+
+label show_uki_sprite(expression):
+    $ uki_expression = expression
+    show uki_sprite
 
 ## Mascot/Animal Sprites
 

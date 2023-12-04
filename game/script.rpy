@@ -28,6 +28,13 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
+    e "Let's test out the dress-up minigame."
+
+    scene clothing_store
+    call screen dress_up_minigame
+
+    e "Did you have fun picking an outfit?"
+
     # This ends the game.
 
     return
