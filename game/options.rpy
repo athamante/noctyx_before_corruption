@@ -142,7 +142,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "noctyx_before_corruption-1701409082"
+define config.save_directory = "noctyx_before_corruption"
 
 
 ## Icon ########################################################################
