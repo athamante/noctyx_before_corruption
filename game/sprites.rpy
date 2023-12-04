@@ -56,10 +56,6 @@ image uki_sprite = Composite(
     placeholder_pos, "uki_hair",
 )
 
-label show_uki_sprite(expression):
-    $ uki_expression = expression
-    show uki_sprite
-
 ## Mascot/Animal Sprites
 
 ## Enemy Sprites

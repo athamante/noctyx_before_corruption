@@ -33,6 +33,8 @@ label start:
     scene clothing_store
     call screen dress_up_minigame
 
+    show eileen happy
+
     e "Did you have fun picking an outfit?"
 
     # This ends the game.
