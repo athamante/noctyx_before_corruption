@@ -12,8 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("noctyx_before_corruption")
-
+define config.name = _("Before Corruption, Let Us Meet In The Abyss")
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
@@ -143,7 +142,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "noctyx_before_corruption-1701409082"
+define config.save_directory = "noctyx_before_corruption"
 
 
 ## Icon ########################################################################
