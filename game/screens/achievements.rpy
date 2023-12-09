@@ -88,3 +88,72 @@ init python:
             )
 
     achievement_tracker = AchievementTracker()
+
+## Achievements screen 
+
+screen achievements():
+
+    tag menu
+
+    use game_menu(_("Achievements"), scroll="viewport"):
+
+        style_prefix "achievements"
+
+        vbox:
+            style "achievements_vbox"
+            label "[achievement_tracker.num_completed]/[achievement_tracker.num_achievements] Completed"
+            xalign 0.5
+
+            for achievement in achievement_tracker.get_sorted_achievements():
+                if achievement.completed:
+                    $ description = ACHIEVEMENTS[achievement.title][1]
+                    $ styling = "completed"
+                else:
+                    $ description = "Locked"
+                    $ styling = "locked"
+
+                hbox:
+                    style_prefix "achievement_" + styling
+                    hbox:
+                        style "achievement_title"
+                        text "[achievement.title]"
+
+                    hbox:
+                        style "achievement_description"
+                        text "[description]"
+
+
+style achievements_label is gui_label
+style achievements_label_text is gui_label_text
+
+style achievements_label:
+    xfill True
+    bottom_margin 30
+
+style achievements_label_text:
+    xalign 0.5
+
+style achievements_vbox is default
+style achievement_title is default
+style achievement_description is default
+style achievement_completed_text is gui_text
+style achievement_locked_text is gui_text
+
+style achievements_vbox:
+    spacing 30
+
+style achievement_title:
+    xsize 350
+    bottom_margin 30
+
+style achievement_description:
+    box_wrap True
+    xfill True
+    left_margin 30
+    bottom_margin 30
+
+style achievement_completed_text:
+    color "#ffffff"
+
+style achievement_locked_text:
+    color "#888888"
