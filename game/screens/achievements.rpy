@@ -76,9 +76,10 @@ init python:
 
         def complete_achievement(self, name) -> None:
             """Mark achievement as completed."""
-            self.achievements[name].completed = True
-            self.num_completed += 1
-            self.save_achievements()
+            if not self.achievements[name].completed:
+                self.achievements[name].completed = True
+                self.num_completed += 1
+                self.save_achievements()
 
         def get_sorted_achievements(self):
             """Get Achievements sorted by index."""
