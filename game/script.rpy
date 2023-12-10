@@ -5,7 +5,6 @@ init python:
 # name of the character.
 
 define e = Character("Eileen")
-define m = Character("[mobname]")
 
 
 # The game starts here.
@@ -32,7 +31,7 @@ label start:
 
     $ mobname = naming()
 
-    m "I'm [mobname]."
+    protagonist "I'm [mobname]."
 
     $ achievement_tracker.complete_achievement("Fake Protagonist")
 
