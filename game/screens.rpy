@@ -307,6 +307,9 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
+        if not main_menu and pov_tracker.current_pov == "fulgur":
+            textbutton _("Information Journal") action ShowMenu("information")
+
         textbutton _("Achievements") action ShowMenu("achievements")
 
         textbutton _("Preferences") action ShowMenu("preferences")

@@ -39,6 +39,15 @@ label start:
 
     e "Did you have fun picking an outfit?"
 
+    $ add_to_journal("kat_virus")
+    $ add_to_journal("test_info_enabled")
+
+    $ pov_tracker.switch_pov("fulgur")
+
+    e "Let's test the information screen. Try clicking the Nijisanji logo in the top left."
+
+    e "This information screen can also be opened from the menu."
+
     $ achievement_tracker.complete_achievement("True Ending")
 
     # This ends the game.
