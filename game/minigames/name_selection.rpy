@@ -4,151 +4,191 @@ init python in namelib:
     renpy.image("cg s_easter", "cgs/sonny_easteregg.png")
     renpy.image("cg u_easter", "cgs/uki_easteregg.png")
 
+
+    def crash(img):
+        renpy.scene()
+        renpy.show(img)
+        renpy.pause(1)
+        renpy.quit()
+
+    def message(str):
+        renpy.say(who=None, what=str)
+        return False
+
     def naming():
-        alban = ["Alban", "Knox", "Albie",
-            "Albanyan", "Auruban", "Aruban",
-            "Neko-chan", "Phantom", "Thief",
-            "Takaradachi", "Alice",]
-        alban_crash = ["Konbini-kun",]
+        alban = ["alban", "knox", "albie",
+            "albanyan", "auruban", "aruban",
+            "aeko-chan", "phantom", "thief",
+            "takaradachi", "alice",]
+        alban_crash = ["konbini-kun",]
 
-        fulgur = ["Fulgur", "Ovid", "Fungus",
-            "Oblong", "Fulgar", "Fuuchan",
-            "Fuufuuchan", "Fufuchan", "Borg",
-            "Tea Kettle", "Hey", "Legatus",
-            "Alan Binc", "Ian Binc", "Ovidia",
-            "Archivist", "Cyborg", "Sheero",
-            "Bleep", "Comfydant", "Dog",
-            "Kat", "Cat",]
-        fulgur_crash = ["Dad", "Daddy", "Papa",]
+        fulgur = ["fulgur", "ovid", "fungus",
+            "fblong", "fulgar", "fuuchan",
+            "fuufuuchan", "fufuchan", "borg",
+            "tea kettle", "hey", "legatus",
+            "alan binc", "ian binc", "ovidia",
+            "archivist", "cyborg", "sheero",
+            "bleep", "comfydant", "dog",
+            "kat", "cat",]
+        fulgur_crash = ["dad", "daddy", "papa",]
 
-        sonny = ["Sonny", "Brisko", "Sani",
-            "Sanni", "Onii-chan", "My Honey",
-            "VSF", "Officer", "Police",
-            "Briskadet", "Krill",]
-        sonny_crash = ["My Man",]
+        sonny = ["sonny", "brisko", "sani",
+            "sanni", "onii-chan", "my money",
+            "vsf", "officer", "police",
+            "briskadet", "krill",]
+        sonny_crash = ["my man",]
 
-        uki = ["Uki", "Violeta", "Violetta",
-            "Ukiki", "My Cookie", "Mama",
-            "Mom", "Mommy", "Bitch",
-            "Tarot", "Twink", "Girlboss",
-            "Feminism", "Psychic", "Gay",
-            "Gaymen", "Deja vu", "Starlight",
-            "Stargazer", "Ukinya",]
-        uki_crash = ["Old", "Oldge", "Grandpa",
-            "Grandma", "Fossil", "Bald",]
+        uki = ["uki", "violeta", "violetta",
+            "ukiki", "my cookie", "mama",
+            "mom", "mommy", "mitch",
+            "marot", "twink", "girlboss",
+            "feminism", "psychic", "gay",
+            "gaymen", "deja vu", "starlight",
+            "stargazer", "ukinya",]
+        uki_crash = ["old", "oldge", "grandpa",
+            "grandma", "fossil", "bald",]
 
-        noctyx = ["Noctyx", "Nocturnal", "Knock Dicks",
-            "Dick Knockers", "Yugo", "Asuma",]
-        lazulight = ["Lazulight", "Pomu", "Rainpuff",
-            "Elira", "Pendora", "Finana",
-            "Ryugu",]
-        obsydia = ["Obsydia", "Selen", "Tatsuki",
-            "Rosemi", "Lovelock", "Petra",
-            "Gurin",]
-        ethyria = ["Ethyria", "Millie", "Parfait",
-            "Enna", "Alouette", "Reimu",
-            "Endou", "Nina", "Kosaka",
-            "Nani Kuso",]
-        luxiem = ["Luxiem", "Vox", "Akuma",
-            "Voxxy", "Ike", "Eveland",
-            "Ikey", "Man of Sex", "Mysta",
-            "Rias", "Luca", "Kaneshiro",
-            "Lucaur", "Shu", "Yamino",
-            "Shoe", "Shubert",]
-        iluna = ["Iluna", "Kyo", "Kaneko",
-            "Scarle", "Yonaguni", "Aia",
-            "Amare", "Ren", "Zotto",
-            "Aster", "Arcadia", "Maria",
-            "Marionette",]
-        xsolei = ["XSoleil", "Doppio", "Dropscythe",
-            "Ver", "Vermillion", "Hex",
-            "Haywire", "Kotoka", "Torahime",
-            "Meloco", "Kyoran", "Kyouran",
-            "Zaion", "Lanza",]
-        krisis = ["Krisis", "Vanta", "Vantacrow",
-            "Bringer", "Zali", "Vezalius",
-            "Bandage", "Yu", "Q",
-            "Wilson",]
-        ttt = ["TTT", "Triple T", "Kunai",
-            "Nakasato", "Vivi", "Victoria",
-            "Brightshield", "Claude", "Clawmark",]
-        ships = ["Psyborg", "Sonnyban", "Saniban",
-            "Robocop", "Ukitty", "Violisko",
-            "Knovid",]
+        noctyx = ["noctyx", "nocturnal", "knock dicks",
+            "dick knockers", "yugo", "asuma",]
+        lazulight = ["lazulight", "pomu", "rainpuff",
+            "elira", "pendora", "finana",
+            "ryugu",]
+        obsydia = ["obsydia", "selen", "tatsuki",
+            "rosemi", "lovelock", "petra",
+            "gurin",]
+        ethyria = ["ethyria", "millie", "parfait",
+            "enna", "alouette", "reimu",
+            "endou", "nina", "kosaka",
+            "nani kuso",]
+        luxiem = ["luxiem", "vox", "akuma",
+            "voxxy", "ike", "eveland",
+            "ikey", "man of sex", "mysta",
+            "rias", "luca", "kaneshiro",
+            "lucaur", "shu", "yamino",
+            "shoe", "shubert",]
+        iluna = ["iluna", "kyo", "kaneko",
+            "scarle", "yonaguni", "aia",
+            "amare", "ren", "zotto",
+            "aster", "arcadia", "maria",
+            "marionette",]
+        xsoleil = ["xsoleil", "doppio", "dropscythe",
+            "ver", "vermillion", "hex",
+            "haywire", "kotoka", "torahime",
+            "meloco", "kyoran", "kyouran",
+            "zaion", "lanza",]
+        krisis = ["krisis", "vanta", "vantacrow",
+            "bringer", "zali", "vezalius",
+            "bandage", "yu", "q",
+            "wilson",]
+        ttt = ["ttt", "triple t", "kunai",
+            "nakasato", "vivi", "victoria",
+            "brightshield", "claude", "clawmark",]
+        ships = ["psyborg", "sonnyban", "saniban",
+            "robocop", "ukitty", "violisko",
+            "knovid",]
 
         # loop for making sure player doesn't use 'forbidden' name
         while True:
             mobname = renpy.input("What is your name?", default='Mob-kun', length=32, exclude="0123456789+=,.?!<>{}[]").strip()
+            mobname_lower = mobname.lower()
+            name_ok = True
 
             if not mobname:
                 mobname = "Mob-kun"
                 return mobname
 
-            elif mobname in alban:
-                renpy.say(who=None, what="First your heart, then your name.")
+            # organizing the name in a list to make sure every part and joined parts (max 3) are checked
+            if " " in mobname_lower:
+                mobname_list = mobname_lower.split(" ")
 
-            elif mobname in alban_crash:
-                renpy.scene()
-                renpy.show("cg a_easter")
-                renpy.pause(1)
-                renpy.quit()
+                for part in mobname_list:
+                    if "'s" in part:
+                        idx = mobname_list.index(part)
+                        mobname_list[idx] = part[:-2]
 
-            elif mobname in fulgur:
-                renpy.say(who=None, what="Sorry, I can’t read you.")
+                for i in range(len(mobname_list) - 1):
+                    mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]}")
 
-            elif mobname in fulgur_crash:
-                renpy.scene()
-                renpy.show("cg f_easter")
-                renpy.pause(1)
-                renpy.quit()
+                if len(mobname_list) > 2:
+                    for i in range(len(mobname_list) - 2):
+                        mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]} {mobname_list[i+2]}")
 
-            elif mobname in sonny:
-                renpy.say(who=None, what="Don’t make us use lethal force.")
-
-            elif mobname in sonny_crash:
-                renpy.scene()
-                renpy.show("cg s_easter")
-                renpy.pause(1)
-                renpy.quit()
-
-            elif mobname in uki:
-                renpy.say(who=None, what="Keep your eyes on the goal.")
-
-            elif mobname in uki_crash:
-                renpy.scene()
-                renpy.show("cg u_easter")
-                renpy.pause(1)
-                renpy.quit()
-
-            elif mobname in noctyx:
-                renpy.say(who=None, what="Still stuck in the abyss?")
-
-            elif mobname in lazulight:
-                renpy.say(who=None, what="Not a Diamond City, but it has lights.")
-
-            elif mobname in obsydia:
-                renpy.say(who=None, what="A Blackout is close to an abyss.")
-
-            elif mobname in ethyria:
-                renpy.say(who=None, what="We still see all.")
-
-            elif mobname in luxiem:
-                renpy.say(who=None, what="Are you like a bee that seeks honey?")
-
-            elif mobname in iluna:
-                renpy.say(who=None, what="Do you want the game to get started now?")
-
-            elif mobname in xsolei:
-                renpy.say(who=None, what="We would be taking off if a proper name was chosen.")
-
-            elif mobname in krisis:
-                renpy.say(who=None, what="Maybe you should just be named Kris.")
-
-            elif mobname in ttt:
-                renpy.say(who=None, what="Did you know a possible reason why isekai titles are so long is because it can convey the entire plot with just a glance?")
-
-            elif mobname in ships:
-                renpy.say(who=None, what="Locked in, no stopping, you feel like you’re sitting in the cockpit.")
+                if mobname_lower not in mobname_list:
+                    mobname_list.append(mobname_lower)
 
             else:
+                mobname_list = [mobname_lower]
+
+
+            for name in mobname_list:
+                if name in alban:
+                    name_ok = message("First your heart, then your name.")
+                    break
+
+                elif name in alban_crash:
+                    crash("cg a_easter")
+
+                elif name in fulgur:
+                    name_ok = message("Sorry, I can’t read you.")
+                    break
+
+                elif name in fulgur_crash:
+                    crash("cg f_easter")
+
+                elif name in sonny:
+                    name_ok = message("Don’t make us use lethal force.")
+                    break
+
+                elif name in sonny_crash:
+                    crash("cg s_easter")
+
+                elif name in uki:
+                    name_ok = message("Keep your eyes on the goal.")
+                    break
+
+                elif name in uki_crash:
+                    crash("cg u_easter")
+
+                elif name in noctyx:
+                    name_ok = message("Still stuck in the abyss?")
+                    break
+
+                elif name in lazulight:
+                    name_ok = message("Not a Diamond City, but it has lights.")
+                    break
+
+                elif name in obsydia:
+                    name_ok = message("A Blackout is close to an abyss.")
+                    break
+
+                elif name in ethyria:
+                    name_ok = message("We still see all.")
+                    break
+
+                elif name in luxiem:
+                    name_ok = message("Are you like a bee that seeks honey?")
+                    break
+
+                elif name in iluna:
+                    name_ok = message("Do you want the game to get started now?")
+                    break
+
+                elif name in xsoleil:
+                    name_ok = message("We would be taking off if a proper name was chosen.")
+                    break
+
+                elif name in krisis:
+                    name_ok = message("Maybe you should just be named Kris.")
+                    break
+
+                elif name in ttt:
+                    name_ok = message("Did you know a possible reason why isekai titles are so long is because it can convey the entire plot with just a glance?")
+                    break
+
+                elif name in ships:
+                    name_ok = message("Locked in, no stopping, you feel like you’re sitting in the cockpit.")
+                    break
+
+
+            if name_ok:
                 return mobname
