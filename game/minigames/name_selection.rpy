@@ -98,26 +98,19 @@ init python in namelib:
                 return mobname
 
             # organizing the name in a list to make sure every part and joined parts (max 3) are checked
-            if " " in mobname_lower:
-                mobname_list = mobname_lower.split(" ")
+            mobname_list = mobname_lower.split(" ")
 
-                for part in mobname_list:
-                    if "'s" in part:
-                        idx = mobname_list.index(part)
-                        mobname_list[idx] = part[:-2]
+            for part in mobname_list:
+                if "'s" in part:
+                    idx = mobname_list.index(part)
+                    mobname_list[idx] = part[:-2]
 
-                for i in range(len(mobname_list) - 1):
-                    mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]}")
+            for i in range(len(mobname_list) - 1):
+                mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]}")
 
-                if len(mobname_list) > 2:
-                    for i in range(len(mobname_list) - 2):
-                        mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]} {mobname_list[i+2]}")
-
-                if mobname_lower not in mobname_list:
-                    mobname_list.append(mobname_lower)
-
-            else:
-                mobname_list = [mobname_lower]
+            if len(mobname_list) > 2:
+                for i in range(len(mobname_list) - 2):
+                    mobname_list.append(f"{mobname_list[i]} {mobname_list[i+1]} {mobname_list[i+2]}")
 
 
             for name in mobname_list:
