@@ -1,5 +1,6 @@
 ﻿# The script of the game goes in this file.
-
+init python:
+    from store.namelib import naming
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -25,6 +26,12 @@ label start:
     # These display lines of dialogue.
 
     e "You've created a new Ren'Py game."
+
+    e "Let's test out naming system."
+
+    $ mobname = naming()
+
+    protagonist "I'm [mobname]."
 
     $ achievement_tracker.complete_achievement("Fake Protagonist")
 
