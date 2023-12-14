@@ -307,6 +307,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
+<<<<<<< HEAD
         if not main_menu:
             if current_character == character_bios["protag" if protag_alive else "dead_protag"]:
                 textbutton _("Character Bios") action ShowMenu("character_bios")
@@ -315,6 +316,10 @@ screen navigation():
                     SetVariable("current_character", character_bios["protag" if protag_alive else "dead_protag"]),
                     ShowMenu("character_bios"),
                 ]
+=======
+        if not main_menu and pov_tracker.current_pov == "fulgur":
+            textbutton _("Information Journal") action ShowMenu("information")
+>>>>>>> origin
 
         textbutton _("Achievements") action ShowMenu("achievements")
 

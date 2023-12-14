@@ -1,5 +1,6 @@
 ﻿# The script of the game goes in this file.
-
+init python:
+    from store.namelib import naming
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -26,6 +27,12 @@ label start:
 
     e "You've created a new Ren'Py game."
 
+    e "Let's test out naming system."
+
+    $ mobname = naming()
+
+    protagonist "I'm [mobname]."
+
     $ achievement_tracker.complete_achievement("Fake Protagonist")
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
@@ -38,6 +45,15 @@ label start:
     show eileen happy
 
     e "Did you have fun picking an outfit?"
+
+    $ add_to_journal("kat_virus")
+    $ add_to_journal("test_info_enabled")
+
+    $ pov_tracker.switch_pov("fulgur")
+
+    e "Let's test the information screen. Try clicking the Nijisanji logo in the top left."
+
+    e "This information screen can also be opened from the menu."
 
     $ achievement_tracker.complete_achievement("True Ending")
 
