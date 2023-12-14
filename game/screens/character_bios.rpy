@@ -1,7 +1,8 @@
 init python:
+    from store.namelib import name_selection_controller
     class CharacterBio:
-        def __init__(self, name, description, is_mascot, sprite, stats=None):
-            self.name = name
+        def __init__(self, name_func, description, is_mascot, sprite, stats=None):
+            self.name_func = name_func
             self.description = description
             self.is_mascot = is_mascot
             self.sprite = sprite
@@ -9,7 +10,7 @@ init python:
 
     character_bios = {
         "alban": CharacterBio(
-            name="Alban Knox",
+            name_func=lambda: "Alban Knox",
             description="An infamous phantom thief. His inherent nature \
 makes him susceptible to trouble, but he's also a master of \
 escape. Alban steals to support the slums, but most of the things \
@@ -20,7 +21,7 @@ For this reason, he also works part-time at a konbini.",
             stats=rpg_characters["alban"],
         ),
         "briskadet": CharacterBio(
-            name="Briskadet",
+            name_func=lambda: "Briskadet",
             description="An intelligent system in a chip, created as a \
 form of protection for Sonny. Acting in part as Sonny's \
 conscience, Briskadets work hard to maintain his sanity \
@@ -29,7 +30,7 @@ throughout his strenuous job.",
             sprite="misc/placeholder.png",
         ),
         "comfydant": CharacterBio(
-            name="Comfydant",
+            name_func=lambda: "Comfydant",
             description="A sheep-shaped robot that acts as information \
 storage. There are too many to count, but Fulgur usually keeps \
 a black one and a white one around. Fulgur tends to act coldly \
@@ -38,8 +39,7 @@ towards them, but he still seems to dote on them in his own way.",
             sprite="misc/placeholder.png",
         ),
         "dead_protag": CharacterBio(
-            # to be replaced with user-selected name
-            name="Fake Protagonist",
+            name_func=lambda: name_selection_controller.mobname,
             description="A top government agent previously on a mission \
 to locate and secure a top secret item with huge implications. \
 They were sent to work with Noctyx to save the future from a \
@@ -50,7 +50,7 @@ the mission cost them their life.",
             stats=rpg_characters["protag"],
         ),
         "fulgur": CharacterBio(
-            name="Fulgur Ovid",
+            name_func=lambda: "Fulgur Ovid",
             description="A cyborg who carries out special missions \
 for the government. A former soldier, he is often sent to the \
 front line even though he's part of the logistics team. His base \
@@ -62,8 +62,7 @@ basis, Fulgur occasionally sells information.",
             stats=rpg_characters["fulgur"],
         ),
         "protag": CharacterBio(
-            # to be replaced with user-selected name
-            name="Fake Protagonist",
+            name_func=lambda: name_selection_controller.mobname,
             description="A top government agent, on a mission to locate \
 and secure a top secret item with huge implications. After a \
 previous mission failure, they have been sent to work with \
@@ -73,7 +72,7 @@ Noctyx to save the future from a dangerous threat.",
             stats=rpg_characters["protag"],
         ),
         "sonny": CharacterBio(
-            name="Sonny Brisko",
+            name_func=lambda: "Sonny Brisko",
             description="An officer who is part of the VSF special forces. \
 Privy to confidential government information, he is often tasked \
 with killing special targets. He is implanted with a chip that \
@@ -84,7 +83,7 @@ but also making him less empathetic.",
             stats=rpg_characters["sonny"],
         ),
         "stargazer": CharacterBio(
-            name="Stargazer",
+            name_func=lambda: "Stargazer",
             description="A plushie and Uki's mascot for his clothing line. \
 Its design is fairly popular due to its round and friendly \
 appearance. Uki is rarely seen without at least one by his side, \
@@ -93,7 +92,7 @@ and they seem to have a strong effect on his mental state.",
             sprite="misc/placeholder.png",
         ),
         "takaradachi": CharacterBio(
-            name="Takaradachi",
+            name_func=lambda: "Takaradachi",
             description="A failed mascot for the konbini. Alban pities them \
 because he thinks they are both rather similar, so he likes to \
 collect them whenever he sees one.",
@@ -101,7 +100,7 @@ collect them whenever he sees one.",
             sprite="misc/placeholder.png",
         ),
         "uki": CharacterBio(
-            name="Uki Violeta",
+            name_func=lambda: "Uki Violeta",
             description="A fashionista who owns a famous clothing store \
 chain. He's also a psychic, although he tries to keep that hidden. \
 Uki used to live in an orphanage in the slums, and he still \
@@ -135,7 +134,8 @@ screen character_bios():
                         add "current_sprite" at truecenter
                     vbox:
                         style_prefix "character_bio_details"
-                        label "[current_character.name]"
+                        $ curr_name = current_character.name_func()
+                        label "[curr_name]"
                         text "[current_character.description]"
 
                         hbox:

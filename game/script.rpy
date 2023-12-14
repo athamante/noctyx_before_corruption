@@ -1,6 +1,6 @@
 ﻿# The script of the game goes in this file.
 init python:
-    from store.namelib import naming
+    from store.namelib import name_selection_controller
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -29,9 +29,9 @@ label start:
 
     e "Let's test out naming system."
 
-    $ mobname = naming()
+    $ name_selection_controller.run_name_selection()
 
-    protagonist "I'm [mobname]."
+    protagonist "I'm [name_selection_controller.mobname]."
 
     $ achievement_tracker.complete_achievement("Fake Protagonist")
 
