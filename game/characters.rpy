@@ -1,5 +1,5 @@
 ## Dynamic Character Variables
-define protag_name = "[mobname]"
+define protag_name = "[name_selection_controller.mobname]"
 define robot_name = "Robot"
 define android_name = "Android"
 define cryptid_name = "Cryptid"
