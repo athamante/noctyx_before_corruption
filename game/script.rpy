@@ -1,6 +1,7 @@
 ﻿# The script of the game goes in this file.
 init python:
     from store.namelib import name_selection_controller
+    from store.timedchoice import death_or_live_choice
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
@@ -54,6 +55,20 @@ label start:
     e "Let's test the information screen. Try clicking the Nijisanji logo in the top left."
 
     e "This information screen can also be opened from the menu."
+
+    e "You now have to make a choice within a time limit."
+
+    $ list_of_choices = [ ("choice 1", "result1"), ("choice 2", "result2"), ("choice 3", "result3") ]
+
+    $ result = death_or_live_choice(list_of_choices, 2, renpy)
+
+    if result == False:
+        "Game Over"
+        return
+    else:
+        "in time limit"
+        $ narrator(result)
+
 
     $ achievement_tracker.complete_achievement("True Ending")
 
