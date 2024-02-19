@@ -1,11 +1,3 @@
-init python in timedchoice:
-    def death_or_live_choice(list_of_choices, time_limit, renpy):
-        start_time = renpy.time.time()
+screen death_or_live(time_limit, fail_part):
 
-        result = renpy.display_menu(list_of_choices)
-
-        elapsed_time = renpy.time.time() - start_time
-        
-        if elapsed_time > time_limit:
-            return False
-        return result
+    timer 1.0 repeat True action If(time_limit > 0, true=SetVariable('time_limit', time_limit - 1.0), false=[Hide("death_or_live"),Jump(fail_part)])

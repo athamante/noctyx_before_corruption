@@ -1,12 +1,23 @@
 ﻿# The script of the game goes in this file.
 init python:
     from store.namelib import name_selection_controller
-    from store.timedchoice import death_or_live_choice
+    
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 define e = Character("Eileen")
 
+
+transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+    # This is to fade the bar in and out, and is only required once in your script
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)])
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve # This is the timer bar.
 
 # The game starts here.
 
@@ -56,22 +67,29 @@ label start:
 
     e "This information screen can also be opened from the menu."
 
-    e "You now have to make a choice within a time limit."
+    e "You now have to make a decision within a limited time."
 
     $ list_of_choices = [ ("choice 1", "result1"), ("choice 2", "result2"), ("choice 3", "result3") ]
 
-    $ result = death_or_live_choice(list_of_choices, 2, renpy)
+    show screen death_or_live(2, "fake_death")
 
-    if result == False:
-        "Game Over"
-        return
-    else:
-        "in time limit"
-        $ narrator(result)
+    $ result = renpy.display_menu(list_of_choices)
 
+    e "You chose: [result]"
 
     $ achievement_tracker.complete_achievement("True Ending")
 
     # This ends the game.
 
     return
+
+
+label fake_death:
+
+        hide screen death_or_live
+    
+        e "You didn't make a decision in time."
+    
+        e "You died."
+    
+        return
