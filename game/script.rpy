@@ -71,9 +71,11 @@ label start:
 
     $ list_of_choices = [ ("choice 1", "result1"), ("choice 2", "result2"), ("choice 3", "result3") ]
 
-    show screen death_or_live(2, "fake_death")
+    show screen death_or_live(5, "fake_death")
 
     $ result = renpy.display_menu(list_of_choices)
+
+    hide screen death_or_live
 
     e "You chose: [result]"
 
