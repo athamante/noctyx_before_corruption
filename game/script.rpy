@@ -1,11 +1,11 @@
 ﻿# The script of the game goes in this file.
 init python:
     from store.namelib import name_selection_controller
+    
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 define e = Character("Eileen")
-
 
 # The game starts here.
 
@@ -55,8 +55,33 @@ label start:
 
     e "This information screen can also be opened from the menu."
 
+    e "You now have to make a decision within a limited time."
+
+    $ list_of_choices = [ ("choice 1", "result1"), ("choice 2", "result2"), ("choice 3", "result3") ]
+
+    show screen death_or_live(5, "fake_death")
+
+    $ result = renpy.display_menu(list_of_choices)
+
+    $ renpy.block_rollback()
+
+    hide screen death_or_live
+
+    e "You chose: [result]"
+
     $ achievement_tracker.complete_achievement("True Ending")
 
     # This ends the game.
 
     return
+
+
+label fake_death:
+
+        hide screen death_or_live
+    
+        e "You didn't make a decision in time."
+    
+        e "You died."
+    
+        return
